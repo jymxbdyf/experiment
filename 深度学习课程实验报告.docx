@@ -1,0 +1,46 @@
+实验名称：循环神经网络（RNN/LSTM/GRU）实验
+姓名：[请填写]
+学号：[请填写]
+日期：2025.09.13
+
+一、实验目的
+1. 掌握循环神经网络（RNN）、长短期记忆网络（LSTM）、门控循环单元（GRU）模型原理及实现方法。
+2. 能够手动实现RNN/LSTM/GRU结构，并使用PyTorch封装接口进行对比实验。
+3. 掌握模型训练过程的Loss变化、预测精度、训练时间等指标分析与可视化手段。
+4. 理解不同超参数对模型性能的影响。
+
+二、实验内容与方法
+1. 数据集：高速公路车流量数据集，归一化、序列窗口切分、训练/验证/测试集划分。
+2. 任务与模型实现：
+  - 手动实现RNN，记录Loss、RMSE、MAE、MAPE、训练时间，并可视化结果。
+  - 使用torch.nn.RNN实现，结构与手动实现保持一致，对比结果。
+  - 超参数影响分析（hidden_size、batch_size、lr等）。
+  - 手动实现LSTM/GRU，原理实现并对比。
+  - 使用torch.nn.LSTM/GRU实现并对比。
+  - LSTM和GRU模型对比分析。
+
+三、实验过程及结果
+1. 手动RNN：Loss与RMSE快速下降，最终收敛，训练时间2-3分钟，测试集RMSE约37，MAE约26，MAPE约8.36%。
+2. torch.nn.RNN：Loss下降趋势同手动实现，训练更快，RMSE约37.4，MAE约26.5，MAPE约8.43%。
+3. 手动LSTM：Loss下降明显，最终RMSE约35.5，MAE约24.6，MAPE约7.58%，优于RNN。
+4. torch.nn.LSTM：Loss及精度与手动实现一致，训练高效。
+5. GRU实验：GRU与LSTM结果相近，训练更快，参数更少。
+6. 超参数分析：合理调参可提升模型性能。
+
+四、结果与分析
+1. 手动与PyTorch接口实现性能接近，接口训练更高效。
+2. LSTM和GRU优于RNN，能更好捕捉长序列依赖。
+3. Loss和精度曲线显示模型拟合优良。
+4. 超参数调整对模型性能有显著影响。
+
+五、实验结论与建议
+- RNN适用于基础时序任务，长依赖有限。
+- LSTM和GRU能有效处理复杂时序任务，建议优先选用。
+- 优先使用PyTorch封装接口，代码简洁高效。
+- 重视Loss/精度的可视化分析。
+- 超参数需结合数据调整。
+
+六、参考文献
+1. Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. Neural computation, 9(8), 1735-1780.
+2. Cho, K., et al. (2014). Learning phrase representations using RNN encoder-decoder for statistical machine translation.
+3. PyTorch官方文档：https://pytorch.org/docs/stable/generated/torch.nn.RNN.html
